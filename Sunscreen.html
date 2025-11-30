@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mens</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .sun-banner {
+    width: 100%;
+    max-width: 1050px; 
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.sun-banner img {
+    width: 100%;
+    max-height: 300px; /* adjust as needed */
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+    .product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Each product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 230px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 5px;
+}
+
+/* Old price */
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buy button */
+.product-button {
+  background-color: #ffd814;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-button:hover {
+  background-color: #f7ca00;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
+
+    .footer {
+      background-color: rgb(61, 56, 56);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    #paymentPage, #orderSuccess, #detailsPage { display: none; }
+
+</style>
+</head>
+<body>
+
+<div class="sun-banner">
+    <img src="image/Banner-sun1.png" alt="Kitchen">
+</div>
+
+<div class="product-container">
+
+    <div class="product-card">
+      <img src="image/Sun1.jpg" alt="Headphone">
+      <div class="product-name">Lakme Sun Expert</div>
+      <div class="price">₹210</div>
+      <div class="old-price">₹799</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Lakme Sun Expert',
+          '₹210',
+          'image/Sun1.jpg',
+          'Lakme Sun Expert SPF 50 PA+++ Super Matte Lotion Sunscreen, Lightweight, Non Sticky,50ml'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun2.jpg" alt="Headphone">
+      <div class="product-name">UV Doux Tinted Mineral Sunscreen</div>
+      <div class="price">₹869</div>
+      <div class="old-price">₹1,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'UV Doux Tinted Mineral Sunscreen',
+          '₹869',
+          'image/Sun2.jpg',
+          'UV Doux Tinted Mineral Sunscreen SPF 50 PA+++ | No White Cast | Zinc & Iron Oxide | Water Resistant | Benzene-Free | Universal Tint for Sensitive Skin | Broad Spectrum 100% Mineral | Safe for Kids 3+ | 50 g'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun3.jpg" alt="Headphone">
+      <div class="product-name">Fixderma Shadow Sunscreen SPF</div>
+      <div class="price">₹523</div>
+      <div class="old-price">₹949</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Fixderma Shadow Sunscreen SPF',
+          '₹523',
+          'image/Sun3.jpg',
+          'Fixderma Shadow Sunscreen SPF 50+ PA+++ Gel | Sunscreen SPF 50 for Oily, Acne Prone & Normal Skin | Broad Spectrum & UVA & UVB Protection | Lightweight | No White Cast | For Unisex - 75G'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun4.jpg" alt="Headphone">
+      <div class="product-name">WOW Skin Science Japanese</div>
+      <div class="price">₹299</div>
+      <div class="old-price">₹899</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'WOW Skin Science Japanese',
+          '₹299',
+          'image/Sun4.jpg',
+          'WOW Skin Science Japanese Yuzu + Vitamin C with 5 Ceramides Dewy Bright Sunscreen Gel | SPF 70 PA++++ 500x Vitamin C | Quick Absorption | No White Cast | Water Resistant | UVA + UVB Protection | 80ml'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun5.jpg" alt="Headphone">
+      <div class="product-name">Dot & Key Watermelon Cooling Sunscreen</div>
+      <div class="price">₹396</div>
+      <div class="old-price">₹599</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Dot & Key Watermelon Cooling Sunscreen',
+          '₹396',
+          'image/Sun5.jpg',
+          'Dot & Key Watermelon Cooling Sunscreen SPF 50+ PA++++ | With Hyaluronic Acid, Instantly Cools Skin, Broad Spectrum Protection | Controls Excess Oil, Checks Tanning, No White Cast, All Skin Types | 50g'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun6.jpg" alt="Headphone">
+      <div class="product-name">BELLAVITA Water based Hydrating Sunscreen</div>
+      <div class="price">₹199</div>
+      <div class="old-price">₹499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'BELLAVITA Water based Hydrating Sunscreen',
+          '₹199',
+          'image/Sun6.jpg',
+          'BELLAVITA Water based Hydrating Sunscreen, SPF 50, Lightweight PA+++, For All Skin Types, No White Cast, Non - Greasy Finish, UV Protection, Broad Spectrum, For Men & Women, 50ML'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun7.jpg" alt="Headphone">
+      <div class="product-name">Niacinamide Oil Balance Fluid</div>
+      <div class="price">₹386</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Niacinamide Oil Balance Fluid',
+          '₹386',
+          'image/Sun7.jpg',
+          'WishCare 5% Niacinamide Oil Balance Fluid Sunscreen SPF 50 PA++++ with 8 Hrs+ SPF Protection- Lightweight Matte Sunscreen SPF 50 for Oily Skin & No White Cast 50g'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun8.jpg" alt="Headphone">
+      <div class="product-name">PONDS Sun Miracle SPF 55 PA+++ Light Sunscreen</div>
+      <div class="price">₹190</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'PONDS Sun Miracle SPF 55 PA+++ Light Sunscreen',
+          '₹190',
+          'image/Sun8.jpg',
+          'PONDS Sun Miracle SPF 55 PA+++ Light Sunscreen - Protect & Bright, With 3% Niacinamide, Fade Dark Spots in 4 Weeks, Lightweight, No White Cast 50g, All'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun9.jpg" alt="Headphone">
+      <div class="product-name">Deconstruct Brightening Fluid Sunscreen</div>
+      <div class="price">₹379</div>
+      <div class="old-price">₹1,99</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Deconstruct Brightening Fluid Sunscreen',
+          '₹379',
+          'image/Sun9.jpg',
+          'Deconstruct Brightening Fluid Sunscreen SPF 50+ with Niacinamide | Lightweight, Dewy & Hydrating for Dry & Normal Skin | Broad Spectrum UVA/UVB Protection | 8-Hour Long-Lasting, Water-Resistant | 50g'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun10.jpg" alt="Headphone">
+      <div class="product-name">Conscious Chemist® Sunscreen</div>
+      <div class="price">₹275</div>
+      <div class="old-price">₹1,500</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Conscious Chemist® Sunscreen',
+          '₹275',
+          'image/Sun10.jpg',
+          'Conscious Chemist® Sunscreen SPF 50 PA++++ | 50g | Sunscreen for Oily Skin, Gel Sunscreen, Niacinamide with Black Berry Extract, Hybrid Lightweight, All Skin Types - Berry Bright'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun11.jpg" alt="Headphone">
+      <div class="product-name">Neutrogena Ultra Sheer Sunscreen </div>
+      <div class="price">₹203</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'HealthSense Weight Machine',
+          '₹203',
+          'image/Sun11.jpg',
+          'Neutrogena Ultra Sheer Sunscreen SPF 50+ | Broad Spectrum UVA/UVB | Blue light protect | No White Cast | Water resistant, Ultra light & Non sticky | Oily, Dry & Sensitive Skin | 30 g (Pack of 1)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Sun12.jpg" alt="Headphone">
+      <div class="product-name">Dot & Key Blueberry Hydrate Barrier Repair Sunscreen</div>
+      <div class="price">₹396</div>
+      <div class="old-price">₹1,599</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Dot & Key Blueberry Hydrate Barrier Repair Sunscreen',
+          '₹396',
+          'image/Sun12.jpg',
+          'Dot & Key Blueberry Hydrate Barrier Repair Sunscreen Spf 50+,Pa++++|For Dry & Sensitive Skin|Non - Greasy Finish|No White Cast|Uv & Blue Light Protection|Broad Spectrum|For Women & Men|50G, 1 Count'
+        )">
+        Buy
+      </button>
+    </div>
+</div>
+
+<!-- ✅ Product Details Section -->
+<div id="detailsPage" 
+     style="display:none; text-align:center; padding:50px; background-color:#f4f6f8; min-height:100vh;">
+
+  <div class="details-container" 
+       style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; 
+              background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:1100px; margin:auto; gap:50px;">
+
+    <!-- 🖼 Product Image -->
+    <div class="details-image" style="flex:1; min-width:380px; text-align:center;">
+      <img id="productImage" src="" alt="Product Image" 
+           style="width:100%; max-width:450px; height:auto; border-radius:15px; border:2px solid #ddd; object-fit:cover;">
+    </div>
+
+    <!-- 📄 Product Info -->
+    <div class="details-info" 
+         style="flex:1; text-align:left; min-width:350px; font-family:'Segoe UI', Arial, sans-serif;">
+      <h2 id="productName" 
+          style="font-size:32px; color:#222; margin-bottom:20px; font-weight:600;"></h2>
+      
+      <p style="font-size:20px; margin-bottom:15px;">
+        <strong>💰 Price:</strong> 
+        <span id="productPrice" style="color:#28a745; font-weight:bold; font-size:22px;"></span>
+      </p>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+        <strong>📱 Specifications:</strong> 
+        <span id="productDesc"></span>
+      </p>
+
+      <!-- ⭐ Additional Info -->
+      <div style="font-size:17px; margin-top:20px;">
+        <p><strong>✨ Features:</strong></p>
+        <ul style="margin-left:20px; line-height:1.8;">
+          <li>Fast Performance with Latest Processor</li>
+          <li>Long Battery Life & Quick Charging</li>
+          <li>High-Resolution Camera with Night Mode</li>
+          <li>5G Connectivity and Latest OS</li>
+        </ul>
+
+        <p><strong>🧾 Warranty:</strong> 1 Year Manufacturer Warranty for Device</p>
+        <p><strong>⭐ Customer Rating:</strong> 4.7 / 5 (Based on 1,200+ Reviews)</p>
+        <p><strong>🎁 Offers:</strong> 10% Instant Discount on HDFC Bank Cards | No Cost EMI Available</p>
+
+        <p style="margin-top:15px;"><strong>✅ Quality:</strong> Premium quality guaranteed.</p>
+        <p><strong>🚚 Delivery:</strong> Estimated delivery in <b>1 day</b>.</p>
+      </div>
+
+      <!-- 🛒 Action Buttons -->
+      <div style="margin-top:30px;">
+        <button onclick="proceedToPayment()" 
+                style="background-color:#198754; color:white; padding:12px 25px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:17px; margin-left:10px;">
+          💳 Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⬇ Back Button -->
+  <div style="margin-top:40px; text-align:center;">
+    <button onclick="goBack()" 
+            style="background-color:#6c757d; color:white; padding:12px 30px; border:none; 
+                   border-radius:8px; cursor:pointer; font-size:17px;">
+      ⬅ Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- 💳 Payment Section (Initially Hidden) -->
+<div id="paymentPage" class="payment-container" 
+     style="display:none; background-color:#e9f1ff; padding:60px; text-align:center; min-height:100vh;">
+  
+  <div class="payment-box" 
+       style="background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 12px rgba(0,0,0,0.1); width:450px; margin:auto; text-align:left;">
+    
+    <h2 style="text-align:center; margin-bottom:25px;">Payment Details</h2>
+    
+    <form onsubmit="makePayment(); return false;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardName" style="width:45%; font-weight:600;">Name on Card:</label>
+        <input type="text" id="cardName" placeholder="Enter name" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardNumber" style="width:45%; font-weight:600;">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="expiry" style="width:45%; font-weight:600;">Expiry (MM/YY):</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <label for="cvv" style="width:45%; font-weight:600;">CVV:</label>
+        <input type="password" id="cvv" placeholder="CVV" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="pay-btn" 
+                style="background-color:#198754; color:white; padding:10px 30px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+          Pay Now
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Success Message -->
+<div id="orderSuccess" 
+     style="display:none; text-align:center; background-color:#d4edda; padding:40px; margin:50px auto; border-radius:10px; width:50%;">
+  <h2>✅ Payment Successful!</h2>
+  <p>Your order will be delivered within <b>1 day</b>.</p>
+  <button class="order-btn" onclick="goToOrders()" 
+          style="background-color:#198754; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">
+    Go to Orders
+  </button>
+</div>
+
+
+
+
+  <footer class="footer">
+  <div class="footer-content">
+    <h3>Happy Cart Shop 😊</h3>
+    <p>Providing quality products since 2025. We deliver the best shopping experience online.</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p>Contact us: info@happycartshop.com | +91 12345 67890</p>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Happy Cart Shop. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+<script>
+
+let selectedProduct = {};   // ✅ store selected product globally
+
+
+// ✅ SHOW PRODUCT DETAILS PAGE
+function showDetails(name, price, image, desc) {
+
+  // ✅ Save selected product details
+  selectedProduct = { name, price, image, desc };
+
+  document.querySelector(".product-container").style.display = "none"; 
+  document.getElementById("detailsPage").style.display = "block";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  // Fill product details
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
+  document.getElementById("productDesc").innerText = desc;
+  document.getElementById("productImage").src = image;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+
+// ✅ GO BACK TO PRODUCT LIST
+function goBack() {
+  document.querySelector(".product-container").style.display = "grid";
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+
+// ✅ SHOW PAYMENT PAGE
+function proceedToPayment() {
+
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "block";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+
+// ✅ PROCESS PAYMENT
+function makePayment() {
+
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (!name || !number || !expiry || !cvv) {
+      alert("⚠ Please fill all payment details!");
+      return;
+    }
+
+    document.getElementById("paymentPage").style.display = "none";
+    document.getElementById("orderSuccess").style.display = "block";
+
+    // ✅ Save order details to localStorage
+    const order = {
+      product: selectedProduct.name,
+      price: selectedProduct.price,
+      desc: selectedProduct.desc,
+      image: selectedProduct.image,
+      date: new Date().toLocaleString(),
+    };
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+
+// ✅ Navigate to Orders Page
+function goToOrders() {
+  window.location.href = "order.html";
+}
+
+</script>
+
+
+
+</body>
+</html>

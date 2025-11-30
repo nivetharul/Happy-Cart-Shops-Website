@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup - Happy Cart</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('image/LOGIN.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+            padding-right: 70px;
+        }
+
+        .container {
+            width: 350px;
+            background: rgba(255, 236, 179, 0.95);
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #a0522d;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #bbb;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #ff8c00;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #cc7000;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 15px;
+            color: #a0522d;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Signup</h2>
+
+    <input type="text" id="signupName" placeholder="Enter Name">
+    <input type="email" id="signupEmail" placeholder="Enter Email">
+    <input type="password" id="signupPassword" placeholder="Enter Password">
+
+    <button onclick="signup()">Signup</button>
+
+    <p class="link">
+        <a href="login.html" style="color:#a0522d; text-decoration:none;">Already have an account? Login</a>
+    </p>
+</div>
+
+<script>
+    function signup() {
+        let name = document.getElementById("signupName").value;
+        let email = document.getElementById("signupEmail").value;
+        let password = document.getElementById("signupPassword").value;
+
+        if (!name || !email || !password) {
+            alert("Please fill all fields");
+            return;
+        }
+
+        let user = { name, email, password };
+        localStorage.setItem("user", JSON.stringify(user));
+
+        alert("Signup successful!");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+</html>

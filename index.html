@@ -1,0 +1,112 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Sales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo-left">
+            <img src="image/logo.jpeg" alt="logo" class="logo">
+
+            <div class="search">
+                <input type="text" placeholder="Search or ask a question">
+                <button class="search-btn">
+                    <img src="image/search.jpeg" alt="search" width="20" height="20">
+                </button>
+            </div>
+
+            <div class="title">
+                <h3>Welcome to Our Happy Cart Shop 😊</h3>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE (Dynamic Login / Username) -->
+        <div class="login-right" id="userSection">
+            <!-- JS Will Replace This Content -->
+        </div>
+    </nav>
+
+
+    <!-- Page Layout -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Product Categories</h3>
+            <ul>
+                <li><a href="All.html" target="contentFrame">All</a></li>
+                <li><a href="SmartPhone.html" target="contentFrame">Smart Phone</a></li>
+                <li><a href="Laptop.html" target="contentFrame">Laptop</a></li>
+                <li><a href="Smartwatch.html" target="contentFrame">Smart Watch</a></li>
+                <li><a href="Headphones.html" target="contentFrame">Headphones</a></li>
+                <li><a href="KitchenAppliance.html" target="contentFrame">Kitchen Appliance</a></li>
+                <li><a href="Mens.html" target="contentFrame">Mens</a></li>
+                <li><a href="Women.html" target="contentFrame">Women</a></li>
+                <li><a href="Book.html" target="contentFrame">Book</a></li>
+                <li><a href="Sunscreen.html" target="contentFrame">Sun Screen</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <iframe name="contentFrame" src="All.html"></iframe>
+        </main>
+
+    </div>
+
+
+    <!-- LOGIN / LOGOUT SCRIPT -->
+    <script>
+    function updateUserUI() {
+        let loggedUser = localStorage.getItem("loggedInUser");
+        let userSection = document.getElementById("userSection");
+
+        if (loggedUser) {
+            userSection.innerHTML = `
+                <span class="username">👤 ${loggedUser}</span>
+
+                <button class="order-btn" onclick="goOrders()">
+                    My Orders
+                </button>
+
+                <button class="logout-btn" onclick="logout()">
+                    Logout
+                </button>
+            `;
+        } else {
+            userSection.innerHTML = `
+                <button class="login-btn" onclick="goLogin()">Login</button>
+                <button class="signup-btn" onclick="goSignup()">SignUp</button>
+            `;
+        }
+    }
+
+    function goLogin() {
+        window.location.href = "login.html";
+    }
+
+    function goSignup() {
+        window.location.href = "signup.html";
+    }
+
+    function goOrders() {
+        window.location.href = "order.html"; // You can change this if your page name is different
+    }
+
+    function logout() {
+        localStorage.removeItem("loggedInUser");
+        alert("Logged out successfully!");
+        updateUserUI();
+    }
+
+    window.onload = updateUserUI;
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1049 @@
+/* Reset some default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        background-color: lightgray;
+    }
+
+iframe {
+    width: 100%;
+    height: 100vh;
+    border: none;
+}
+
+
+/* Navbar styling */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Search box */
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 200px;
+}
+
+.search-btn {
+    background-color: #f5f5f5;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* Navbar Title */
+.title h3 {
+    color: white;
+    margin-left: 20px;
+}
+
+/* Buttons Area (Right side) */
+.login-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Login & Signup Buttons */
+.login-btn, .signup-btn {
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+}
+
+.signup-btn {
+    background-color: #007BFF;
+}
+
+/* Username Display */
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffdd8d; /* light golden to match dark navbar */
+    margin-right: 10px;
+}
+header {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to move to next line on small screens */
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+}
+header .buttons {
+    display: flex;
+    gap: 10px; /* space between buttons */
+    flex-wrap: wrap; /* wrap buttons if screen is small */
+}
+
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.logout-btn {
+    background-color: #FF5722; /* your logout button color */
+    color: white;
+}
+
+.order-btn, .logout-btn, .login-btn, .signup-btn {
+    padding: 6px 12px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.order-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Logout Button */
+.logout-btn {
+    padding: 6px 12px;
+    background-color: #ff5722;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #e64a19;
+}
+
+/* Page container: sidebar + content */
+.container {
+    display: flex;
+    height: calc(100vh - 70px); /* fills screen below nav */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: lightslategray;
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sidebar:hover {
+    color: black; /* ✅ text becomes visible */
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin: 12px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: black;
+}
+
+/* Main content area */
+.content {
+    flex: 1;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.about, .product-about, .About, .contact, .privacy {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    flex: 1 1 calc(50% - 40px); /* Two sections per row */
+    min-width: 300px;
+    margin: 10px;
+    margin-left: 20px;
+    margin-right:20px ;
+}
+
+.About {
+    flex: 1 1 100%; /* About section takes full width */
+}
+
+h2 {
+    text-align: center;
+    color: black;
+    margin-bottom: 10px;
+}
+
+h4 {
+    color: black;
+    margin-top: 15px;
+}
+
+p, li {
+    line-height: 1.6;
+    color: #333;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* Hover effect */
+.about:hover, .product-about:hover, .About:hover, .contact:hover, .privacy:hover {
+    transform: scale(1.02);
+    transition: 0.3s ease;
+    background-color: #fff7e6;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .about, .product-about, .contact, .privacy, .About {
+        flex: 1 1 100%;
+    }
+}
+
+
+/* Product grid layout */
+/* Product container */
+/* Container for all cards */
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card {
+  flex: 1 1 calc(20% - 20px);   /* ✅ 5 cards per row */
+  max-width: 200px;
+  background: lightslategrey;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.product-card img {
+        /* set a fixed width */
+  height: auto;     /* set a fixed height */
+  object-fit: contain; /* keeps the aspect ratio and prevents stretching */
+  display: block;
+  margin: 0 auto;      /* center the image inside the card */
+  max-width: 100%;
+}
+
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card button {
+  background-color: rgb(240, 117, 117);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.product-card button:hover {
+  background-color: #218838;
+}
+
+
+/* Responsive adjustment for very small screens */
+@media (max-width: 480px) {
+  .box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    max-width: 90%; /* Almost full width on mobile */
+  }
+}
+
+
+.product-banner {
+  margin: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-banner h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.product-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;          /* space between products */
+  justify-content: center;
+  overflow-x: hidden;  
+}
+
+
+
+.product-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for cleaner look */
+}
+
+.product img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product {
+    flex: 1 1 calc(20% - 15px); /* 5 products per row on desktop */
+    max-width: 150px;
+}
+
+@media (max-width: 668px) {
+    .product {
+        flex: 1 1 calc(50% - 15px); /* 2 products per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        flex: 1 1 50%; /* 1 product per row on mobile */
+    }
+}
+
+
+.latest-banner {
+  margin: 30px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.latest-banner h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.latest-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;          /* space between products */
+  justify-content: center;
+  overflow-x: hidden;  
+}
+
+.latest-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for cleaner look */
+}
+
+.latest img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.latest {
+    flex: 1 1 calc(20% - 15px); /* 5 products per row on desktop */
+    max-width: 150px;
+}
+
+@media (max-width: 668px) {
+    .latest {
+        flex: 1 1 calc(50% - 15px); /* 2 products per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .latest {
+        flex: 1 1 50%; /* 1 product per row on mobile */
+    }
+}
+
+/* Outer box for all products */
+.week-container-box {
+  background-color: lightgoldenrodyellow;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 90%;
+
+}
+
+.week-container-box h1{
+  text-align: center;
+  color:rgb(48, 49, 131);
+  font-size: 100px;
+}
+
+/* Grid layout for products */
+/* Outer Section */
+.week-container-box {
+  background-color: lightseagreen;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 30px auto;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title */
+.week-container-box h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+/* Product Grid Layout */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Product Card */
+.week {
+  background-color: lightgoldenrodyellow;
+  width: 200px;
+  border: 1.5px solid #eee;
+  border-radius: 12px;
+  text-align: center;
+  padding: 15px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation */
+.week:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.week img {
+  width: 140px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Product Name */
+.week h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin: 8px 0;
+}
+
+/* Price Button */
+.week button {
+  background-color: #ffeb3b;
+  color: #000;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Strikethrough price */
+.week button del {
+  color: #888;
+  margin-right: 5px;
+}
+
+/* Button hover */
+.week button:hover {
+  background-color: #b19b2c75;
+}
+
+.popular {
+  display: flex;
+  flex-wrap: wrap;              /* ✅ allows wrapping on small screens */
+  justify-content: center;      /* ✅ center-align boxes */
+  background-color: lightcyan;
+  margin: 20px;
+}
+
+.launch{
+  background-color: #ecc237;
+  width:150px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 15px;
+}
+
+.launch h3 {
+  text-align: center;
+}
+
+.launch-1{
+  background-color: #ecc237;
+  width:160px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 20px;    /* space inside at the top */
+  padding-bottom: 20px;
+
+}
+
+.launch-1 h3 {
+  text-align: center;
+}
+
+.launch-2{
+  background-color: #ecc237;
+  width:150px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 25px;    /* space inside at the top */
+  padding-bottom: 20px;
+
+}
+
+.launch-2 h3 {
+  text-align: center;
+}
+
+.launch-3{
+  background-color: #ecc237;
+  width:150px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 30px;    /* space inside at the top */
+  padding-bottom: 20px;
+
+}
+
+.launch-3 h3 {
+  text-align: center;
+}
+
+.launch-4{
+  background-color: #ecc237;
+  width:150px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 30px;    /* space inside at the top */
+  padding-bottom: 20px;
+
+}
+
+.launch-4 h3 {
+  text-align: center;
+}
+
+.launch-5{
+  background-color: #ecc237;
+  width:150px;
+  height: 100px;
+  padding: 10px;
+  margin: 20px;
+  border : dotted 2px ;
+  padding-top: 25px;    /* space inside at the top */
+  padding-bottom: 20px;
+
+}
+
+.launch-5 h3 {
+  text-align: center;
+}
+
+/* ===== General Phone Container ===== */
+.phone {
+  background-color: lightgray;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  gap: 30px;
+}
+
+/* ===== Common Styles for All Phones ===== */
+.sam {
+  background-color: rgb(224, 180, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  flex-wrap: wrap; /* responsive */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.sam img {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.samcontent {
+  background-color: rgb(231, 176, 137);
+  border-radius: 10px;
+  padding: 20px;
+  width: 600px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.samcontent  h2 {
+  margin-bottom: 10px;
+}
+
+.samcontent p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.samcontent button {
+  background-color: black;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.samcontent button:hover {
+  background-color: #333;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .sam {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .samcontent {
+    width: 90%;
+  }
+
+  .samcontent img {
+    height: 220px;
+  }
+}
+
+.iqoo {
+  background-color: rgb(224, 180, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  flex-wrap: wrap; /* responsive */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.iqoo img {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.iqoocontent {
+  background-color: rgb(231, 176, 137);
+  border-radius: 10px;
+  padding: 20px;
+  width: 600px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.iqoocontent  h2 {
+  margin-bottom: 10px;
+}
+
+.iqoocontent p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.iqoocontent button {
+  background-color: black;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.iqoocontent button:hover {
+  background-color: #333;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .iqoo {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .iqoocontent {
+    width: 90%;
+  }
+
+  .iqoocontent img {
+    height: 220px;
+  }
+}
+
+.oneplus {
+  background-color: rgb(224, 180, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  flex-wrap: wrap; /* responsive */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.oneplus img {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.onepluscontent {
+  background-color: rgb(231, 176, 137);
+  border-radius: 10px;
+  padding: 20px;
+  width: 600px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.onepluscontent  h2 {
+  margin-bottom: 10px;
+}
+
+.onepluscontent p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.onepluscontent button {
+  background-color: black;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.onepluscontent button:hover {
+  background-color: #333;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .oneplus {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .onepluscontent {
+    width: 90%;
+  }
+
+  .onepluscontent img {
+    height: 220px;
+  }
+}
+
+.redmi {
+  background-color: rgb(224, 180, 187);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  flex-wrap: wrap; /* responsive */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.redmi img {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.redmicontent {
+  background-color: rgb(231, 176, 137);
+  border-radius: 10px;
+  padding: 20px;
+  width: 600px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.redmicontent  h2 {
+  margin-bottom: 10px;
+}
+
+.redmicontent p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.redmicontent button {
+  background-color: black;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.redmicontent button:hover {
+  background-color: #333;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .redmi {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .redmicontent {
+    width: 90%;
+  }
+
+  .redmicontent img {
+    height: 220px;
+  }
+}
+
+
+.product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 250px;
+      padding: 15px;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px 0 5px 0;
+    }
+
+    .product-price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #b12704;
+    }
+
+    .product-button {
+      background-color: #ffd814;       /* Amazon-style yellow */
+      color: #111;                     /* Dark text */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      width: 100%;                     /* Makes it stretch across the card */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .product-button:hover {
+      background-color: #f7ca00;       /* Slightly darker yellow on hover */
+      transform: scale(1.05);          /* Small zoom effect */
+    }
+
+    .product-button:active {
+      background-color: #e6b800;       /* Even darker when clicked */
+      transform: scale(0.98);
+    }
+
+    #paymentPage {
+    display: none; /* Hide payment section initially */
+  }
+
+  #orderSuccess {
+    display: none; /* Hide success message initially */
+    text-align: center;
+    padding: 20px;
+    background-color: #d4edda;
+    border-radius: 10px;
+    margin: 20px auto;
+    width: 50%;
+  }
+
+  
+
+
+
+
+
+
+
+.footer {
+  background-color: rgb(61, 56, 56);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+

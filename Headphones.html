@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Head Phones</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .long-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 30px;
+  padding: 20px;
+}
+
+.long-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img img {
+  width: 160px;
+  border-radius: 12px;
+}
+
+.card-details {
+  flex: 1;
+}
+
+.long-price {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+.long-old-price {
+  text-decoration: line-through;
+  color: #777;
+  margin-left: 10px;
+}
+
+.offer {
+  color: green;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.long-product-button {
+  background: #ffd600;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 160px;
+  margin-top: 10px;
+}
+
+
+    .product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Each product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 230px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 5px;
+}
+
+/* Old price */
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buy button */
+.product-button {
+  background-color: #ffd814;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-button:hover {
+  background-color: #f7ca00;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
+   .footer {
+  background-color: rgb(61, 56, 56);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+}
+
+.footer p {
+  margin: 5px 0;
+  color: white;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+    #paymentPage, #orderSuccess, #detailsPage { display: none; }
+    
+  </style>
+  
+</head>
+<body>
+
+
+<!-- 2-COLUMN GRID CONTAINER -->
+<div class="long-product-grid">
+
+  <!-- PRODUCT 1 -->
+  <div class="long-card">
+    <div class="card-img">
+      <img src="image/Head_phone9.jpg" alt="WaveX Pro Bass Wireless Headphones">
+    </div>
+
+    <div class="card-details">
+      <h3>WaveX Pro Bass Wireless Headphones</h3>
+
+      <p class="long-price">
+        ₹2,499 
+        <span class="long-old-price">₹7,999</span>
+        <span class="offer">69% off</span>
+      </p>
+
+      <button class="long-product-button"
+        onclick="showDetails(
+          'WaveX Pro Bass Wireless Headphones',
+          '₹2,499',
+          'image/Head_phone9.jpg',
+          '40mm Dynamic Drivers | Deep Bass | 30H Battery | Bluetooth 5.3 | Lightweight Comfort Fit'
+        )">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- PRODUCT 2 -->
+  <div class="long-card">
+    <div class="card-img">
+      <img src="image/Head_phone10.jpg" alt="Mustang Thunder Bluetooth Headphones">
+    </div>
+
+    <div class="card-details">
+      <h3>Mustang Thunder Bluetooth Headphones</h3>
+
+      <p class="long-price">
+        ₹2,799
+        <span class="long-old-price">₹8,499</span>
+        <span class="offer">67% off</span>
+      </p>
+
+      <button class="long-product-button"
+        onclick="showDetails(
+          'Mustang Thunder Bluetooth Headphones',
+          '₹2,799',
+          'image/Head_phone10.jpg',
+          'ENC Mic | LED Modes | 40mm Drivers | Punchy Bass | Soft Cushions'
+        )">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+
+
+  <!-- PRODUCT 3 -->
+  <div class="long-card">
+    <div class="card-img">
+      <img src="image/Head_phone11.jpg" alt="BassX Studio ANC Headphones">
+    </div>
+
+    <div class="card-details">
+      <h3>BassX Studio ANC Headphones</h3>
+
+      <p class="long-price">
+        ₹3,199
+        <span class="long-old-price">₹9,999</span>
+        <span class="offer">68% off</span>
+      </p>
+
+      <button class="long-product-button"
+        onclick="showDetails(
+          'BassX Studio ANC Headphones',
+          '₹3,199',
+          'image/Head_phone11.jpg',
+          'Active Noise Cancellation | 50H Playtime | Ultra Soft Ear Cushions | Type-C Fast Charging'
+        )">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <div class="long-card">
+    <div class="card-img">
+      <img src="image/Head_phone12.jpg" alt="BassX Studio ANC Headphones">
+    </div>
+
+    <div class="card-details">
+      <h3>ANC Headphones</h3>
+
+      <p class="long-price">
+        ₹3,199
+        <span class="long-old-price">₹9,999</span>
+        <span class="offer">58% off</span>
+      </p>
+
+      <button class="long-product-button"
+        onclick="showDetails(
+          'ANC Headphones',
+          '₹3,199',
+          'image/Head_phone12.jpg',
+          'Active Noise Cancellation | 50H Playtime | Ultra Soft Ear Cushions | Type-C Fast Charging'
+        )">
+        Add to Cart
+      </button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="product-container">
+
+    <!-- 1 -->
+    <div class="product-card">
+      <img src="image/Head_phone1.jpg" alt="Headphone">
+      <div class="product-name">WaveX Pro Bass Wireless Headphones</div>
+      <div class="price">₹2,499</div>
+      <div class="old-price">₹4,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'WaveX Pro Bass Wireless Headphones',
+          '₹2,499',
+          'image/Head_phone1.jpg',
+          '40mm Dynamic Drivers | Deep Bass | 30H Battery | Bluetooth 5.3 | Lightweight Comfort Fit'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 2 -->
+    <div class="product-card">
+      <img src="image/Head_phone2.jpg" alt="Headphone">
+      <div class="product-name">AeroComfort Leather Edition Headphones</div>
+      <div class="price">₹3,299</div>
+      <div class="old-price">₹6,499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'AeroComfort Leather Edition Headphones',
+          '₹3,299',
+          'image/Head_phone2.jpg',
+          'Soft Leather Cushion | Passive Noise Reduction | 20H Playback | Premium Build Quality'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 3 -->
+    <div class="product-card">
+      <img src="image/Head_phone3.jpg" alt="Headphone">
+      <div class="product-name">MintWave Fitness Wireless Headset</div>
+      <div class="price">₹1,899</div>
+      <div class="old-price">₹3,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'MintWave Fitness Wireless Headset',
+          '₹1,899',
+          'image/Head_phone3.jpg',
+          'Sweatproof Design | HD Sound | Secure Fit | 18H Battery | Sports-Friendly Build'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 4 -->
+    <div class="product-card">
+      <img src="image/Head_phone4.jpg" alt="Headphone">
+      <div class="product-name">Maroon SonicPower Stereo Headphones</div>
+      <div class="price">₹2,199</div>
+      <div class="old-price">₹4,499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Maroon SonicPower Stereo Headphones',
+          '₹2,199',
+          'image/Head_phone4.jpg',
+          'Rich Stereo Sound | Foldable Design | 25H Battery | Voice Assistant Support'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 5 -->
+    <div class="product-card">
+      <img src="image/Head_phone5.jpg" alt="Headphone">
+      <div class="product-name">Champagne Gold Premium Audio Headphones</div>
+      <div class="price">₹3,999</div>
+      <div class="old-price">₹7,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Champagne Gold Premium Audio Headphones',
+          '₹3,999',
+          'image/Head_phone5.jpg',
+          'Premium Metallic Finish | HD Ultra-Bass | 28H Battery | Fast Charging | Noise Isolation'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 6 -->
+    <div class="product-card">
+      <img src="image/Head_phone6.jpg" alt="Headphone">
+      <div class="product-name">Black Storm Waterproof Sports Headphones</div>
+      <div class="price">₹2,799</div>
+      <div class="old-price">₹5,499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Black Storm Waterproof Sports Headphones',
+          '₹2,799',
+          'image/Head_phone6.jpg',
+          'IP67 Waterproof | Extra Bass | Magnetic Ear Cups | 20H Backup | Quick Pairing'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 7 -->
+    <div class="product-card">
+      <img src="image/Head_phone7.jpg" alt="Headphone">
+      <div class="product-name">Pink Kids Safe-Sound Learning Headset</div>
+      <div class="price">₹1,299</div>
+      <div class="old-price">₹2,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Pink Kids Safe-Sound Learning Headset',
+          '₹1,299',
+          'image/Head_phone7.jpg',
+          'Volume-Limited for Kids | Soft Cushions | Learning Mode | Lightweight | 15H Battery'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <!-- 8 -->
+    <div class="product-card">
+      <img src="image/Head_phone8.jpg" alt="Headphone">
+      <div class="product-name">Black Round Classic Studio Headphones</div>
+      <div class="price">₹3,499</div>
+      <div class="old-price">₹6,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Black Round Classic Studio Headphones',
+          '₹3,499',
+          'image/Head_phone8.jpg',
+          'Studio-Grade Sound | Comfort Fit | 35mm Drivers | 24H Battery | Crystal Clear Calling'
+        )">
+        Buy
+      </button>
+    </div>
+
+</div>
+
+
+
+
+<!-- ✅ Product Details Section -->
+<div id="detailsPage" 
+     style="display:none; text-align:center; padding:50px; background-color:#f4f6f8; min-height:100vh;">
+
+  <div class="details-container" 
+       style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; 
+              background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:1100px; margin:auto; gap:50px;">
+
+    <!-- 🖼 Product Image -->
+    <div class="details-image" style="flex:1; min-width:380px; text-align:center;">
+      <img id="productImage" src="" alt="Product Image" 
+           style="width:100%; max-width:450px; height:auto; border-radius:15px; border:2px solid #ddd; object-fit:cover;">
+    </div>
+
+    <!-- 📄 Product Info -->
+    <div class="details-info" 
+         style="flex:1; text-align:left; min-width:350px; font-family:'Segoe UI', Arial, sans-serif;">
+      <h2 id="productName" 
+          style="font-size:32px; color:#222; margin-bottom:20px; font-weight:600;"></h2>
+      
+      <p style="font-size:20px; margin-bottom:15px;">
+        <strong>💰 Price:</strong> 
+        <span id="productPrice" style="color:#28a745; font-weight:bold; font-size:22px;"></span>
+      </p>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+        <strong>📱 Specifications:</strong> 
+        <span id="productDesc"></span>
+      </p>
+
+      <!-- ⭐ Additional Info -->
+      <div style="font-size:17px; margin-top:20px;">
+        <p><strong>✨ Features:</strong></p>
+        <ul style="margin-left:20px; line-height:1.8;">
+          <li>Fast Performance with Latest Processor</li>
+          <li>Long Battery Life & Quick Charging</li>
+          <li>High-Resolution Camera with Night Mode</li>
+          <li>5G Connectivity and Latest OS</li>
+        </ul>
+
+        <p><strong>🧾 Warranty:</strong> 1 Year Manufacturer Warranty for Device</p>
+        <p><strong>⭐ Customer Rating:</strong> 4.7 / 5 (Based on 1,200+ Reviews)</p>
+        <p><strong>🎁 Offers:</strong> 10% Instant Discount on HDFC Bank Cards | No Cost EMI Available</p>
+
+        <p style="margin-top:15px;"><strong>✅ Quality:</strong> Premium quality guaranteed.</p>
+        <p><strong>🚚 Delivery:</strong> Estimated delivery in <b>1 day</b>.</p>
+      </div>
+
+      <!-- 🛒 Action Buttons -->
+      <div style="margin-top:30px;">
+        <button onclick="proceedToPayment()" 
+                style="background-color:#198754; color:white; padding:12px 25px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:17px; margin-left:10px;">
+          💳 Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⬇ Back Button -->
+  <div style="margin-top:40px; text-align:center;">
+    <button onclick="goBack()" 
+            style="background-color:#6c757d; color:white; padding:12px 30px; border:none; 
+                   border-radius:8px; cursor:pointer; font-size:17px;">
+      ⬅ Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- 💳 Payment Section (Initially Hidden) -->
+<div id="paymentPage" class="payment-container" 
+     style="display:none; background-color:#e9f1ff; padding:60px; text-align:center; min-height:100vh;">
+  
+  <div class="payment-box" 
+       style="background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 12px rgba(0,0,0,0.1); width:450px; margin:auto; text-align:left;">
+    
+    <h2 style="text-align:center; margin-bottom:25px;">Payment Details</h2>
+    
+    <form onsubmit="makePayment(); return false;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardName" style="width:45%; font-weight:600;">Name on Card:</label>
+        <input type="text" id="cardName" placeholder="Enter name" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardNumber" style="width:45%; font-weight:600;">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="expiry" style="width:45%; font-weight:600;">Expiry (MM/YY):</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <label for="cvv" style="width:45%; font-weight:600;">CVV:</label>
+        <input type="password" id="cvv" placeholder="CVV" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="pay-btn" 
+                style="background-color:#198754; color:white; padding:10px 30px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+          Pay Now
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Success Message -->
+<div id="orderSuccess" 
+     style="display:none; text-align:center; background-color:#d4edda; padding:40px; margin:50px auto; border-radius:10px; width:50%;">
+  <h2>✅ Payment Successful!</h2>
+  <p>Your order will be delivered within <b>1 day</b>.</p>
+  <button class="order-btn" onclick="goToOrders()" 
+          style="background-color:#198754; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">
+    Go to Orders
+  </button>
+</div>
+
+
+
+
+  <footer class="footer">
+  <div class="footer-content">
+    <h3>Happy Cart Shop 😊</h3>
+    <p>Providing quality products since 2025. We deliver the best shopping experience online.</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p>Contact us: info@happycartshop.com | +91 12345 67890</p>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Happy Cart Shop. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+<script>
+
+let selectedProduct = {}; // store selected product details
+
+// ✅ SHOW PRODUCT DETAILS PAGE
+function showDetails(name, price, image, desc) {
+
+  // hide both product sections
+  document.querySelector(".long-product-grid").style.display = "none";
+  document.querySelector(".product-container").style.display = "none";
+
+  // show details page
+  document.getElementById("detailsPage").style.display = "block";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  // Fill product details
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
+  document.getElementById("productDesc").innerText = desc;
+  document.getElementById("productImage").src = image;
+
+  // Save selected product for payment
+  selectedProduct = { name, price, image, desc };
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ GO BACK TO PRODUCT LIST
+function goBack() {
+
+  // show both product grids again
+  document.querySelector(".long-product-grid").style.display = "grid";
+  document.querySelector(".product-container").style.display = "grid";
+
+  // hide all other pages
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ SHOW PAYMENT PAGE
+function proceedToPayment() {
+
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "block";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+}
+
+
+// ✅ PROCESS PAYMENT
+function makePayment() {
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (!name || !number || !expiry || !cvv) {
+      alert("⚠ Please fill all payment details!");
+      return;
+    }
+
+    // hide payment
+    document.getElementById("paymentPage").style.display = "none";
+
+    // show success
+    document.getElementById("orderSuccess").style.display = "block";
+
+    // Save order details to localStorage
+    const order = {
+      product: selectedProduct.name,
+      price: selectedProduct.price,
+      desc: selectedProduct.desc,
+      image: selectedProduct.image,
+      date: new Date().toLocaleString(),
+    };
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ Navigate to Orders Page
+function goToOrders() {
+  window.location.href = "order.html";
+}
+
+</script>
+
+
+
+
+
+
+</body>
+</html>

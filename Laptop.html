@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .banner-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .banner-slide {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    .banner {
+      min-width: 100%;
+      height: 380px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.1));
+      border-radius: 12px;
+    }
+
+    .banner1 { background-image: url('image/laptop-banner1.png'); }
+    .banner2 { background-image: url('image/laptop-banner.png'); }
+
+    .banner-text {
+      position: absolute;
+      bottom: 50px;
+      left: 60px;
+      color: #fff;
+      z-index: 2;
+    }
+
+    .banner-text h2 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .banner-text p {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+
+    .banner-text button {
+      background-color: #ff9900;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .banner-text button:hover { background-color: #e68a00; }
+
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.4s;
+    }
+
+    .active { background-color: #333; }
+
+  .Laptop-card {
+  background-color: lightgoldenrodyellow;
+  padding: 10px;
+}
+
+/* Section spacing */
+.section {
+  margin-bottom: 50px;
+}
+
+/* Product container: use Grid for perfect alignment */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Each product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 230px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 5px;
+}
+
+/* Old price */
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buy button */
+.product-button {
+  background-color: #ffd814;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-button:hover {
+  background-color: #f7ca00;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
+    .footer {
+      background-color: rgb(61, 56, 56);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    #paymentPage, #orderSuccess, #detailsPage { display: none; }
+    
+  </style>
+  
+</head>
+<body>
+
+<div id="mainContent">
+  <div class="title">
+    <h2 style="text-align: center;">Laptop and Accessories</h2>
+  </div>
+
+  <div class="banner-container">
+    <div class="banner-slide" id="slides">
+      <div class="banner banner1">
+        <div class="banner-text">
+          <h2>Best Deals on Laptops</h2>
+          <p>Upgrade your setup with exclusive offers!</p>
+          <button>Shop Now</button>
+        </div>
+      </div>
+
+      <div class="banner banner2">
+        <div class="banner-text">
+          <h2>Gaming Accessories Sale</h2>
+          <p>Laptop — Up to 40% Off!</p>
+          <button>Explore Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+
+  <div class="Launch">
+  <h2 style="text-align: left; font-size: 24px; font-weight: 600; margin-bottom: 20px; color: #222;">
+    New Launches | Gaming Accessories
+  </h2>
+
+  <!-- ✅ Product Cards -->
+  <div class="product-container">
+    <div class="product-card">
+      <img src="image/Gaming_mouse.jpg" alt="Razer Mouse">
+      <div class="product-name">Razer DeathAdder V4 Pro Gaming Mouse</div>
+      <div class="price">₹16,499</div>
+      <div class="old-price">₹27,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Razer DeathAdder V4 Pro Gaming Mouse','₹16,499','image/Gaming_mouse.jpg','Ergonomic ultra-lightweight wireless gaming mouse | 45,000 DPI Focus Pro Optical Sensor | 8,000Hz polling rate | Razer HyperSpeed Wireless | 6 programmable buttons | Designed for precision and comfort')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Wired_Gaming.jpg" alt="JBL Headphones">
+      <div class="product-name">JBL Quantum 100M2 Wired Gaming Headphones</div>
+      <div class="price">₹2,699</div>
+      <div class="old-price">₹4,499</div>
+      <button class="product-button" 
+        onclick="showDetails('JBL Quantum 100M2 Wired Gaming Headphones','₹2,699','image/Wired_Gaming.jpg','Lightweight over-ear gaming headset | 40mm drivers for powerful bass | Detachable boom mic | Soft memory foam cushions | Compatible with PC, PS5, Xbox, and mobile devices')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Wired_Earbuds.jpg" alt="Razer Earbuds">
+      <div class="product-name">Razer Hammerhead V3 Wired Earbuds</div>
+      <div class="price">₹6,115</div>
+      <div class="old-price">₹9,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Razer Hammerhead V3 Wired Earbuds','₹6,115','image/Wired_Earbuds.jpg','High-performance 10mm drivers | Custom-tuned sound for gaming and music | Inline microphone and volume control | Aluminum body design | 3.5mm audio jack for universal connectivity')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/USB_Micro.jpg" alt="Razer Microphone">
+      <div class="product-name">Razer Seiren V3 Mini USB Microphone</div>
+      <div class="price">₹4,142</div>
+      <div class="old-price">₹8,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Razer Seiren V3 Mini USB Microphone','₹4,142','image/USB_Micro.jpg','Compact plug-and-play condenser mic | Supercardioid pickup pattern | Studio-grade clarity | Built-in shock mount | Ideal for streaming, calls, and voice recording')">
+        Buy
+      </button>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Up to 80% off | Shop now</h2>
+  <div class="product-container">
+    <div class="product-card">
+      <img src="image/Botat_Airdrops.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">boAt Airdopes 141 Gen 2 (2025)</div>
+      <div class="price">₹899</div>
+      <div class="old-price">₹3,990</div>
+      <button class="product-button" 
+        onclick="showDetails('boAt Airdopes 141 Gen 2 (2025)','₹899','image/Botat_Airdrops.jpeg','boAt Airdopes 141 Gen 2 (2025), 4 Mics ENx Tech, 48 Hrs Playback, Free Music Streaming, Fast Charge, Low Latency, IPX4, v5.4 Bluetooth Earbuds, TWS Ear Buds Wireless Earphones with mic')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/JDL_Wired.jpeg" alt="JBL Wired Earphones">
+      <div class="product-name">JBL C100SI Wired In-Ear Headphones</div>
+      <div class="price">₹599</div>
+      <div class="old-price">₹1,299</div>
+      <button class="product-button" 
+        onclick="showDetails('JBL C100SI Wired In-Ear Headphones','₹599','image/JDL_Wired.jpeg','JBL C100SI Wired In Ear Headphones With Mic, Pure Bass Sound, One Button Multi-Function Remote, Premium Metallic Finish, Angled Buds For Comfort Fit (Black)')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Boat_Bassheads.png" alt="Boat Wired Earphones">
+      <div class="product-name">Boat Bassheads 100 C Wired Earphones</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹1,990</div>
+      <button class="product-button" 
+        onclick="showDetails('Boat Bassheads 100 C Wired Earphones','₹499','image/Boat_Bassheads.png','Boat Bassheads 100 C Wired Headphones Earphones with Type-C Jack, in-Line Microphone, in Ear, 10Mm Drivers, Signature Sound, Integrated Controls & Multi-Os Compatibility (Black)')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Boat_Bassheads1.jpeg" alt="Boat Headphones">
+      <div class="product-name">Boat Bassheads 900 Pro Wired Headphones</div>
+      <div class="price">₹1,052</div>
+      <div class="old-price">₹4,990</div>
+      <button class="product-button" 
+        onclick="showDetails('Boat Bassheads 900 Pro Wired Headphones','₹1,052','image/Boat_Bassheads1.jpeg','Boat Bassheads 900 Pro Wired Headphones with 40Mm Drivers, Lightweight Foldable Design, Over Ear, Remote Control, Unidirectional Retractable Mic, Adjustable Headband & USB Type-A Compatibility(Black)')">
+        Buy
+      </button>
+    </div>
+  </div>
+</div>
+
+<!----Card---->
+<div class="Laptop-card">
+<div class="product-container">
+    <div class="product-card">
+      <img src="image/Dell_Keyboard.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Dell KM3322W Wireless USB Keyboard and Mouse Combo</div>
+      <div class="price">₹1,399</div>
+      <div class="old-price">₹2,990</div>
+      <button class="product-button" 
+        onclick="showDetails('Dell KM3322W Wireless USB Keyboard and Mouse Combo','₹1,399','image/Dell_Keyboard.jpeg','Dell KM3322W Wireless USB Keyboard and Mouse Combo, Anti-Fade & Spill-Resistant Keys, up to 36 Month Battery Life, 3Y Advance Exchange Warranty - Black')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Portronics_Sound.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Portronics SoundDrum 1 12W TWS Portable</div>
+      <div class="price">₹999</div>
+      <div class="old-price">₹1,990</div>
+      <button class="product-button" 
+        onclick="showDetails('Portronics SoundDrum 1 12W TWS Portable','₹1,399','image/Portronics_Sound.jpeg','Portronics SoundDrum 1 12W TWS Portable Bluetooth Speaker with Powerful Bass, Bluetooth 5.3V, 360° Surround Sound, USB Drive in, Type C Fast Charging(Blue)')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Ambrane_Unbreakable.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Ambrane Unbreakable 3A Fast Charging</div>
+      <div class="price">₹200</div>
+      <div class="old-price">₹390</div>
+      <button class="product-button" 
+        onclick="showDetails('Ambrane Unbreakable 3A Fast Charging','₹200','image/Ambrane_Unbreakable.jpeg','Ambrane Unbreakable 3A Fast Charging 1.5m Braided Type C Cable for Smartphones, Tablets & other Type C devices, 480Mbps Data Sync, Quick Charge 3.0 (RCT15A, Black)')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Duracell_Alkaline.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Duracell Alkaline AAA Battery</div>
+      <div class="price">₹199</div>
+      <div class="old-price">₹390</div>
+      <button class="product-button" 
+        onclick="showDetails('Duracell Alkaline AAA Battery','₹199','image/Duracell_Alkaline.jpeg','Duracell Alkaline AAA Battery, Pack of 10, Everyday Devices, Clock, Toy, Remote')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Hp_Keyboard.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">HP K120 Wired Keyboard</div>
+      <div class="price">₹599</div>
+      <div class="old-price">₹1,999</div>
+      <button class="product-button" 
+        onclick="showDetails('HP K120 Wired Keyboard','₹599','image/Hp_Keyboard.jpeg','HP K120 Wired Keyboard/3 Years RTB Warranty')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Lenovo.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Lenovo Laptop</div>
+      <div class="price">₹19,599</div>
+      <div class="old-price">₹22,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Lenovo Laptop','₹19,599','image/Lenovo.jpeg','Lenovo (SmartChoice)Chromebook Intel Celeron N4500 (4GB RAM/64GB eMMC 5.1/11.6 Inch (29.46cm)/HD Display/2Wx2 Stereo Speakers/HD Camera/Chrome OS/Blue/1.21Kg), 82UY0014HA')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Walker_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Walker Laptop</div>
+      <div class="price">₹12,599</div>
+      <div class="old-price">₹20,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Walker Laptop','₹12,599','image/Walker_Laptop.jpeg','Walker Best Student &Office Work Laptop|Thin & Light|14.1 1920 * 1080 Resolution FHD IPS Display |4GB RAM,128GB SSD|Celeron Processor N4020 (Gemini Lake)| Windows 11 Home | Silver')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Acer_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Acer Laptop</div>
+      <div class="price">₹19,599</div>
+      <div class="old-price">₹30,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Acer Laptop','₹19,599','image/Acer_Laptop.jpeg','Acer Chromebook, Intel Celeron N4500, 8GB RAM, 128GB eMMC, Full HD LED Backlit TFT LCD 15.6/39.6 cm, Chrome OS, Silver, 1.6 KG, CB315-4H, Intel Graphics, WiFi 6 Laptop')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Apple_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Apple Laptop</div>
+      <div class="price">₹2,10,599</div>
+      <div class="old-price">₹2,30,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Apple Laptop','₹2,10,599','image/Acer_Laptop.jpeg','Apple 2024 MacBook Pro Laptop with M4 chip with 10‑core CPU and 10‑core GPU: Built for Apple Intelligence, (14.2″) Liquid Retina XDR Display, 14GB Unified Memory, 1TB SSD Storage; Space Black')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/HeroBook_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">HeroBook Laptop</div>
+      <div class="price">₹19,599</div>
+      <div class="old-price">₹30,999</div>
+      <button class="product-button" 
+        onclick="showDetails('HeroBook Laptop','₹19,599','image/Acer_Laptop.jpeg','Chuwi HeroBook Plus 15.6 FHD Laptop, Intel Celeron N4020 Dual Core Processor Upto 2.80GHz, 8GB RAM, 256GB SSD, Intel UHD Graphics, Windows 11,WiFi 6,Webcam,BT 5.2,HDMI Port,38Wh, 1.74kg (Iron Gray)')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/OnePlus_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">OnePlus Laptop</div>
+      <div class="price">₹15,599</div>
+      <div class="old-price">₹20,999</div>
+      <button class="product-button" 
+        onclick="showDetails('OnePlus Laptop','₹15,599','image/OnePlus_Laptop.jpeg','OnePlus Pad Go 28.85Cm 2.4K 7:5 Ratio Readfit Eye Care LCD Display, Dolby Atmos Quad Speakers, Wi-Fi Connectivity Tablet, 8GB RAM 128 GB Storage Expandable Up-to 1TB Asin, Green')">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Primebook_Laptop.jpeg" alt="boAt Airdopes 141 Gen 2">
+      <div class="product-name">Primebook Laptop</div>
+      <div class="price">₹17,599</div>
+      <div class="old-price">₹20,999</div>
+      <button class="product-button" 
+        onclick="showDetails('Primebook Laptop','₹17,599','image/Primebook_Laptop.jpeg','Primebook 2 Pro 2025 (New Launch) | 8GB RAM, 128GB UFS Storage | 14.1-Inch FHD IPS Display | 14 Hours Battery | MediaTek Helio G99 | Android 15 (PrimeOS 3.0) | Backlit Keyboard | in-Built AI | Gray')">
+        Buy
+      </button>
+    </div>
+
+  
+    
+    </div>
+  </div>
+</div>
+
+
+
+<!-- ✅ Product Details Section -->
+<div id="detailsPage" 
+     style="display:none; text-align:center; padding:50px; background-color:#f4f6f8; min-height:100vh;">
+
+  <div class="details-container" 
+       style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; 
+              background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:1100px; margin:auto; gap:50px;">
+
+    <!-- 🖼 Product Image -->
+    <div class="details-image" style="flex:1; min-width:380px; text-align:center;">
+      <img id="productImage" src="" alt="Product Image" 
+           style="width:100%; max-width:450px; height:auto; border-radius:15px; border:2px solid #ddd; object-fit:cover;">
+    </div>
+
+    <!-- 📄 Product Info -->
+    <div class="details-info" 
+         style="flex:1; text-align:left; min-width:350px; font-family:'Segoe UI', Arial, sans-serif;">
+      <h2 id="productName" 
+          style="font-size:32px; color:#222; margin-bottom:20px; font-weight:600;"></h2>
+      
+      <p style="font-size:20px; margin-bottom:15px;">
+        <strong>💰 Price:</strong> 
+        <span id="productPrice" style="color:#28a745; font-weight:bold; font-size:22px;"></span>
+      </p>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+        <strong>📱 Specifications:</strong> 
+        <span id="productDesc"></span>
+      </p>
+
+      <!-- ⭐ Additional Info -->
+      <div style="font-size:17px; margin-top:20px;">
+        <p><strong>✨ Features:</strong></p>
+        <ul style="margin-left:20px; line-height:1.8;">
+          <li>Fast Performance with Latest Processor</li>
+          <li>Long Battery Life & Quick Charging</li>
+          <li>High-Resolution Camera with Night Mode</li>
+          <li>5G Connectivity and Latest OS</li>
+        </ul>
+
+        <p><strong>🧾 Warranty:</strong> 1 Year Manufacturer Warranty for Device</p>
+        <p><strong>⭐ Customer Rating:</strong> 4.7 / 5 (Based on 1,200+ Reviews)</p>
+        <p><strong>🎁 Offers:</strong> 10% Instant Discount on HDFC Bank Cards | No Cost EMI Available</p>
+
+        <p style="margin-top:15px;"><strong>✅ Quality:</strong> Premium quality guaranteed.</p>
+        <p><strong>🚚 Delivery:</strong> Estimated delivery in <b>1 day</b>.</p>
+      </div>
+
+      <!-- 🛒 Action Buttons -->
+      <div style="margin-top:30px;">
+        <button onclick="proceedToPayment()" 
+                style="background-color:#198754; color:white; padding:12px 25px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:17px; margin-left:10px;">
+          💳 Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⬇ Back Button -->
+  <div style="margin-top:40px; text-align:center;">
+    <button onclick="goBack()" 
+            style="background-color:#6c757d; color:white; padding:12px 30px; border:none; 
+                   border-radius:8px; cursor:pointer; font-size:17px;">
+      ⬅ Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- 💳 Payment Section (Initially Hidden) -->
+<div id="paymentPage" class="payment-container" 
+     style="display:none; background-color:#e9f1ff; padding:60px; text-align:center; min-height:100vh;">
+  
+  <div class="payment-box" 
+       style="background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 12px rgba(0,0,0,0.1); width:450px; margin:auto; text-align:left;">
+    
+    <h2 style="text-align:center; margin-bottom:25px;">Payment Details</h2>
+    
+    <form onsubmit="makePayment(); return false;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardName" style="width:45%; font-weight:600;">Name on Card:</label>
+        <input type="text" id="cardName" placeholder="Enter name" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardNumber" style="width:45%; font-weight:600;">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="expiry" style="width:45%; font-weight:600;">Expiry (MM/YY):</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <label for="cvv" style="width:45%; font-weight:600;">CVV:</label>
+        <input type="password" id="cvv" placeholder="CVV" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="pay-btn" 
+                style="background-color:#198754; color:white; padding:10px 30px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+          Pay Now
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Success Message -->
+<div id="orderSuccess" 
+     style="display:none; text-align:center; background-color:#d4edda; padding:40px; margin:50px auto; border-radius:10px; width:50%;">
+  <h2>✅ Payment Successful!</h2>
+  <p>Your order will be delivered within <b>1 day</b>.</p>
+  <button class="order-btn" onclick="goToOrders()" 
+          style="background-color:#198754; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">
+    Go to Orders
+  </button>
+</div>
+
+<footer class="footer">
+  <div class="footer-content">
+    <h3>Happy Cart Shop 😊</h3>
+    <p>Providing quality products since 2025. We deliver the best shopping experience online.</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p>Contact us: info@happycartshop.com | +91 12345 67890</p>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Happy Cart Shop. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  let index = 0;
+  const slides = document.getElementById("slides");
+  const dots = document.querySelectorAll(".dot");
+  const totalSlides = 2;
+
+  // ✅ Automatic image slider
+  function showSlide() {
+    if (!slides) return;
+    slides.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
+    index = (index + 1) % totalSlides;
+  }
+  setInterval(showSlide, 3500);
+
+  let selectedProduct = {};
+
+  // ✅ Function to hide all main content and product sections
+  function hideAllSections() {
+    const mainContent = document.getElementById("mainContent");
+    const sections = document.querySelectorAll(
+      ".Laptop-card, .section, .Launch, .banner-container, .dots"
+    );
+
+    if (mainContent) mainContent.style.display = "none";
+    sections.forEach(sec => (sec.style.display = "none"));
+  }
+
+  // ✅ Function to show product details only
+  function showDetails(name, price, image, desc) {
+    selectedProduct = { name, price, image, desc };
+
+    hideAllSections(); // Hide all other sections
+
+    const detailsPage = document.getElementById("detailsPage");
+    detailsPage.style.display = "block";
+
+    // Update product details content
+    document.getElementById("productName").innerText = name;
+    document.getElementById("productPrice").innerText = price;
+    document.getElementById("productDesc").innerText = desc;
+    document.getElementById("productImage").src = image;
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ✅ Go back to main product listing
+  function goBack() {
+    const detailsPage = document.getElementById("detailsPage");
+    detailsPage.style.display = "none";
+
+    const mainContent = document.getElementById("mainContent");
+    const sections = document.querySelectorAll(
+      ".Laptop-card, .section, .Launch, .banner-container, .dots"
+    );
+
+    if (mainContent) mainContent.style.display = "block";
+    sections.forEach(sec => (sec.style.display = "block"));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ✅ Proceed to payment page
+  function proceedToPayment() {
+    document.getElementById("detailsPage").style.display = "none";
+    document.getElementById("paymentPage").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ✅ Confirm payment and show success message
+  function makePayment() {
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (!name || !number || !expiry || !cvv) {
+      alert("⚠ Please fill all payment details!");
+      return;
+    }
+
+    document.getElementById("paymentPage").style.display = "none";
+    document.getElementById("orderSuccess").style.display = "block";
+
+    // Save order details to localStorage
+    const order = {
+      product: selectedProduct.name,
+      price: selectedProduct.price,
+      desc: selectedProduct.desc,
+      image: selectedProduct.image,
+      date: new Date().toLocaleString(),
+    };
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ✅ Navigate to Orders Page
+  function goToOrders() {
+    window.location.href = "order.html";
+  }
+</script>
+
+
+
+</body>
+</html>

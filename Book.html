@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mens</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Each product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 230px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 5px;
+}
+
+/* Old price */
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buy button */
+.product-button {
+  background-color: #ffd814;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-button:hover {
+  background-color: #f7ca00;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
+
+    .footer {
+      background-color: rgb(61, 56, 56);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    #paymentPage, #orderSuccess, #detailsPage { display: none; }
+
+</style>
+</head>
+<body>
+
+<div class="product-container">
+
+    <div class="product-card">
+      <img src="image/Book1.jpg" alt="Headphone">
+      <div class="product-name">The Final Experiment</div>
+      <div class="price">₹209</div>
+      <div class="old-price">₹1,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'The Final Experiment',
+          '₹209',
+          'image/Book1.jpg',
+          'The Final Experiment | The Mystery Thriller of the Year | Witness the Fall of our World '
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book2.jpg" alt="Headphone">
+      <div class="product-name">Human Edge in the AI Age</div>
+      <div class="price">₹490</div>
+      <div class="old-price">₹799</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Human Edge in the AI Age',
+          '₹490',
+          'image/Book2.jpg',
+          'Human Edge in the AI Age: Eight Timeless Mantras for Success | By the Bestselling Author of Winning in the Digital Age and Mastering the Data Paradox'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book3.jpg" alt="Headphone">
+      <div class="product-name">The Art of Spending Money</div>
+      <div class="price">₹329</div>
+      <div class="old-price">₹799</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'The Art of Spending Money',
+          '₹329',
+          'image/Book3.jpg',
+          'The Art of Spending Money: Simple Choices for a Richer Life (From Morgan Housel - The Bestsellers author of The Psychology of Money and Same as Ever – A Powerful Book on How to Use Money Wisely)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book4.jpg" alt="Headphone">
+      <div class="product-name">How to Win Friends and Influence People</div>
+      <div class="price">₹99</div>
+      <div class="old-price">₹199</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'How to Win Friends and Influence People',
+          '₹99',
+          'image/Book4.jpg',
+          'How to Win Friends and Influence People : Original Edition | Premium Paperback'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book5.jpg" alt="Headphone">
+      <div class="product-name">Courage To Be Disliked</div>
+      <div class="price">₹349</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Courage To Be Disliked',
+          '₹349',
+          'image/Book5.jpg',
+          'Courage To Be Disliked, The: How to free yourself, change your life and achieve real happiness'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book6.jpg" alt="Headphone">
+      <div class="product-name">Thank You for Leaving</div>
+      <div class="price">₹199</div>
+      <div class="old-price">₹499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Thank You for Leaving',
+          '₹199',
+          'image/Book6.jpg',
+          'Thank You for Leaving: Learning to be okay with saying goodbye | A new book by one of India’s highest selling authors - Rithvik Singh'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book7.jpg" alt="Headphone">
+      <div class="product-name">FMy Inventions Autobiography of Nikola</div>
+      <div class="price">₹79</div>
+      <div class="old-price">₹199</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'FMy Inventions Autobiography of Nikola',
+          '₹79',
+          'image/Book7.jpg',
+          'FMy Inventions Autobiography of Nikola Tesla [Premium Paperback] Nikola Tesla Autobiography | Books to Read | Science Books | Physics Books | Autobiography Books | My Inventions Nikola Tesla '
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book8.jpg" alt="Headphone">
+      <div class="product-name">The Housemaid</div>
+      <div class="price">₹349</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'The Housemaid',
+          '₹349',
+          'image/Book8.jpg',
+          'The Housemaid: An Absolutely Addictive Psychological Thriller with a Jaw-Dropping Twist (The Housemaid series, Book1) | TikTok Viral & Bestseller Pick'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book9.jpg" alt="Headphone">
+      <div class="product-name">How to Be Happy with Who You Are</div>
+      <div class="price">₹192</div>
+      <div class="old-price">₹599</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'How to Be Happy with Who You Are',
+          '₹192',
+          'image/Book9.jpg',
+          'How to Be Happy with Who You Are | Puffin Chapter Book | Full-colour, Gorgeous Illustrations | Perfect Introduction to Sudha Murty | Ages 5+'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book10.jpg" alt="Headphone">
+      <div class="product-name">The Theory Of Everything</div>
+      <div class="price">₹169</div>
+      <div class="old-price">₹499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'The Theory Of Everything',
+          '₹169',
+          'image/Book10.jpg',
+          'The Theory Of Everything | Where science meets wonder | Understand the universe | Journey into the cosmos | Black holes & the Big Bang Explained'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book11.jpg" alt="Headphone">
+      <div class="product-name">Memory</div>
+      <div class="price">₹110</div>
+      <div class="old-price">₹499</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Memory',
+          '₹110',
+          'image/Book11.jpg',
+          'Memory: How to Develop, Train and Use It | Original Edition | Premium Paperback'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="image/Book12.jpg" alt="Headphone">
+      <div class="product-name">World’s Greatest Books For Personal Growth</div>
+      <div class="price">₹699</div>
+      <div class="old-price">₹999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'World’s Greatest Books For Personal Growth',
+          '₹699',
+          'image/Book12.jpg',
+          'World’s Greatest Books For Personal Growth & Wealth (Set of 4 Books) : Perfect Motivational Gift Set'
+        )">
+        Buy
+      </button>
+    </div>
+
+</div>
+
+<!-- ✅ Product Details Section -->
+<div id="detailsPage" 
+     style="display:none; text-align:center; padding:50px; background-color:#f4f6f8; min-height:100vh;">
+
+  <div class="details-container" 
+       style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; 
+              background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:1100px; margin:auto; gap:50px;">
+
+    <!-- 🖼 Product Image -->
+    <div class="details-image" style="flex:1; min-width:380px; text-align:center;">
+      <img id="productImage" src="" alt="Product Image" 
+           style="width:100%; max-width:450px; height:auto; border-radius:15px; border:2px solid #ddd; object-fit:cover;">
+    </div>
+
+    <!-- 📄 Product Info -->
+    <div class="details-info" 
+         style="flex:1; text-align:left; min-width:350px; font-family:'Segoe UI', Arial, sans-serif;">
+      <h2 id="productName" 
+          style="font-size:32px; color:#222; margin-bottom:20px; font-weight:600;"></h2>
+      
+      <p style="font-size:20px; margin-bottom:15px;">
+        <strong>💰 Price:</strong> 
+        <span id="productPrice" style="color:#28a745; font-weight:bold; font-size:22px;"></span>
+      </p>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+        <strong>📱 Specifications:</strong> 
+        <span id="productDesc"></span>
+      </p>
+
+      <!-- ⭐ Additional Info -->
+      <div style="font-size:17px; margin-top:20px;">
+        <p><strong>✨ Features:</strong></p>
+        <ul style="margin-left:20px; line-height:1.8;">
+          <li>Fast Performance with Latest Processor</li>
+          <li>Long Battery Life & Quick Charging</li>
+          <li>High-Resolution Camera with Night Mode</li>
+          <li>5G Connectivity and Latest OS</li>
+        </ul>
+
+        <p><strong>🧾 Warranty:</strong> 1 Year Manufacturer Warranty for Device</p>
+        <p><strong>⭐ Customer Rating:</strong> 4.7 / 5 (Based on 1,200+ Reviews)</p>
+        <p><strong>🎁 Offers:</strong> 10% Instant Discount on HDFC Bank Cards | No Cost EMI Available</p>
+
+        <p style="margin-top:15px;"><strong>✅ Quality:</strong> Premium quality guaranteed.</p>
+        <p><strong>🚚 Delivery:</strong> Estimated delivery in <b>1 day</b>.</p>
+      </div>
+
+      <!-- 🛒 Action Buttons -->
+      <div style="margin-top:30px;">
+        <button onclick="proceedToPayment()" 
+                style="background-color:#198754; color:white; padding:12px 25px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:17px; margin-left:10px;">
+          💳 Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⬇ Back Button -->
+  <div style="margin-top:40px; text-align:center;">
+    <button onclick="goBack()" 
+            style="background-color:#6c757d; color:white; padding:12px 30px; border:none; 
+                   border-radius:8px; cursor:pointer; font-size:17px;">
+      ⬅ Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- 💳 Payment Section (Initially Hidden) -->
+<div id="paymentPage" class="payment-container" 
+     style="display:none; background-color:#e9f1ff; padding:60px; text-align:center; min-height:100vh;">
+  
+  <div class="payment-box" 
+       style="background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 12px rgba(0,0,0,0.1); width:450px; margin:auto; text-align:left;">
+    
+    <h2 style="text-align:center; margin-bottom:25px;">Payment Details</h2>
+    
+    <form onsubmit="makePayment(); return false;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardName" style="width:45%; font-weight:600;">Name on Card:</label>
+        <input type="text" id="cardName" placeholder="Enter name" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardNumber" style="width:45%; font-weight:600;">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="expiry" style="width:45%; font-weight:600;">Expiry (MM/YY):</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <label for="cvv" style="width:45%; font-weight:600;">CVV:</label>
+        <input type="password" id="cvv" placeholder="CVV" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="pay-btn" 
+                style="background-color:#198754; color:white; padding:10px 30px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+          Pay Now
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Success Message -->
+<div id="orderSuccess" 
+     style="display:none; text-align:center; background-color:#d4edda; padding:40px; margin:50px auto; border-radius:10px; width:50%;">
+  <h2>✅ Payment Successful!</h2>
+  <p>Your order will be delivered within <b>1 day</b>.</p>
+  <button class="order-btn" onclick="goToOrders()" 
+          style="background-color:#198754; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">
+    Go to Orders
+  </button>
+</div>
+
+
+
+
+  <footer class="footer">
+  <div class="footer-content">
+    <h3>Happy Cart Shop 😊</h3>
+    <p>Providing quality products since 2025. We deliver the best shopping experience online.</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p>Contact us: info@happycartshop.com | +91 12345 67890</p>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Happy Cart Shop. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+<script>
+
+let selectedProduct = {};   // ✅ Store selected product globally
+
+
+// ✅ SHOW PRODUCT DETAILS PAGE
+function showDetails(name, price, image, desc) {
+
+  // ✅ Save selected product details
+  selectedProduct = { name, price, image, desc };
+
+  document.querySelector(".product-container").style.display = "none";
+  document.getElementById("detailsPage").style.display = "block";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  // Fill product details
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
+  document.getElementById("productDesc").innerText = desc;
+  document.getElementById("productImage").src = image;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ GO BACK TO PRODUCT LIST
+function goBack() {
+  document.querySelector(".product-container").style.display = "grid";
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ SHOW PAYMENT PAGE
+function proceedToPayment() {
+
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "block";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ PROCESS PAYMENT
+function makePayment() {
+
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (!name || !number || !expiry || !cvv) {
+      alert("⚠ Please fill all payment details!");
+      return;
+    }
+
+    document.getElementById("paymentPage").style.display = "none";
+    document.getElementById("orderSuccess").style.display = "block";
+
+    // ✅ Create an order object
+    const order = {
+      product: selectedProduct.name,
+      price: selectedProduct.price,
+      desc: selectedProduct.desc,
+      image: selectedProduct.image,
+      date: new Date().toLocaleString()
+    };
+
+    // ✅ Save to localStorage
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ Navigate to Orders Page
+function goToOrders() {
+  window.location.href = "order.html";
+}
+
+</script>
+
+
+
+</body>
+</html>

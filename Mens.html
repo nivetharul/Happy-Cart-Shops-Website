@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mens</title>
+  <style>
+    body {
+      background-color: lightsteelblue;
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cards per row */
+  gap: 20px;
+  justify-items: center;
+}
+
+/* Each product card */
+.product-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  width: 100%;
+  max-width: 230px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image */
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* Product name */
+.product-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #B12704;
+  margin-bottom: 5px;
+}
+
+/* Old price */
+.old-price {
+  text-decoration: line-through;
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buy button */
+.product-button {
+  background-color: #ffd814;
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-button:hover {
+  background-color: #f7ca00;
+  transform: scale(1.05);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    grid-template-columns: 1fr; /* 1 per row */
+  }
+}
+
+
+    .footer {
+      background-color: rgb(61, 56, 56);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    #paymentPage, #orderSuccess, #detailsPage { display: none; }
+
+</style>
+</head>
+<body>
+
+<div class="product-container">
+
+    <div class="product-card">
+      <img src="Men1.jpg" alt="Headphone">
+      <div class="product-name">Thomas Scott Men</div>
+      <div class="price">₹699</div>
+      <div class="old-price">₹1,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Thomas Scott Men',
+          '₹699',
+          'Men1.jpg',
+          'Thomas Scott Men | Solid | Full Sleeve | Slim Fit | 100% Cotton | Spread Collar | Casual Shirt'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men2.jpg" alt="Headphone">
+      <div class="product-name">Cotton King Mens Shirts</div>
+      <div class="price">₹1,999</div>
+      <div class="old-price">₹2,500</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Cotton King Mens Shirts',
+          '₹1,999',
+          'Men2.jpg',
+          'Cotton King Mens Shirts | 100% Cotton Long Sleeve Shirts for Men | Button Down Shirt Men | Oxford Mens Dress Shirt'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men3.jpg" alt="Headphone">
+      <div class="product-name">Men Solid Cotton Formal Shirt</div>
+      <div class="price">₹599</div>
+      <div class="old-price">₹1,500</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Men Solid Cotton Formal Shirt',
+          '₹599',
+          'Men3.jpg',
+          'Symbol Men Solid Cotton Formal Shirt | Plain | Full Sleeve - Regular Fit (Available in Plus Sizes)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men4.jpg" alt="Headphone">
+      <div class="product-name">SURF CUZ Mens Hawaiian Shirts</div>
+      <div class="price">₹1,599</div>
+      <div class="old-price">₹2,500</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'SURF CUZ Mens Hawaiian Shirts',
+          '₹1,599',
+          'Men4.jpg',
+          'SURF CUZ Mens Hawaiian Shirts Short Sleeve Stretch Casual Aloha Shirt Vacation Mens Tropical Button Down Beach Shirts'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men5.jpg" alt="Headphone">
+      <div class="product-name">CB-COLEBROOK Men Regular Fit Solid Soft</div>
+      <div class="price">₹549</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'CB-COLEBROOK Men Regular Fit Solid Soft',
+          '₹549',
+          'Men5.jpg',
+          'CB-COLEBROOK Men Regular Fit Solid Soft Touch Cotton Casual Shirt with Pocket Design with Spread Collar & Full Sleeves (Available in Plus Size)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men6.jpg" alt="Headphone">
+      <div class="product-name">Lymio Men Cargo</div>
+      <div class="price">₹799</div>
+      <div class="old-price">₹900</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Lymio Men Cargo',
+          '₹799',
+          'Men6.jpg',
+          'Lymio Men Cargo || Men Cargo Pants Cotton || Casual Cargos Pant (Cargo-46-49)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men7.jpg" alt="Headphone">
+      <div class="product-name">Cotton King Mens Shirts</div>
+      <div class="price">₹1,799</div>
+      <div class="old-price">₹2,900</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Cotton King Mens Shirts',
+          '₹1,799',
+          'Men7.jpg',
+          'Cotton King Mens Shirts | 100% Cotton Long Sleeve Shirts for Men | Button Down Shirt Men | Oxford Mens Dress Shirt'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men8.jpg" alt="Headphone">
+      <div class="product-name">Leriya Fashion Men Polycotton</div>
+      <div class="price">₹799</div>
+      <div class="old-price">₹900</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Leriya Fashion Men Polycotton',
+          '₹799',
+          'Men8.jpg',
+          'Leriya Fashion Men Polycotton Casual Textured Button Down Regular Fit Shirts Long Sleeve Shirt (Available in Plus Size and Combo Pack of 2)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men9.jpg" alt="Headphone">
+      <div class="product-name">Lymio Men Polyester</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Lymio Men Polyester',
+          '₹499',
+          'Men9.jpg',
+          'Lymio Men Polyester Casual Regular Fit Shirt || Stylish (Rib)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men10.jpg" alt="Headphone">
+      <div class="product-name">Leriya Fashion Men Formal</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Leriya Fashion Men Formal',
+          '₹499',
+          'Men10.jpg',
+          'Leriya Fashion Men Formal Button Down Shirt – Slim Fit Shirt for Men | Textured Long Sleeve Polycotton| Business & Meeting Ready (Available in Plus Size and Combo Pack of 2)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men11.jpg" alt="Headphone">
+      <div class="product-name">CB-COLEBROOK Men Casual</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'CB-COLEBROOK Men Casual',
+          '₹499',
+          'Men11.jpg',
+          'CB-COLEBROOK Men Casual Button Down Shirts Long Sleeve Linen Shirt Fashion Textured Beach Summer Shirts| Men Stylish Shirt | Men Fancy (Available in Plus Size)'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men12.jpg" alt="Headphone">
+      <div class="product-name">SMOWKLY Men Premium Cotton</div>
+      <div class="price">₹599</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'SMOWKLY Men Premium Cotton',
+          '₹599',
+          'Men12.jpg',
+          'SMOWKLY Men Premium Cotton Blend Pyjama Set || Stylish Round Neck T-Shirt and Shorts || Casual Night Suit Wear Set for Man'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men13.jpg" alt="Headphone">
+      <div class="product-name">Allen Solly Men Cotton</div>
+      <div class="price">₹899</div>
+      <div class="old-price">₹1,200</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Allen Solly Men Cotton',
+          '₹899',
+          'Men13.jpg',
+          'Allen Solly Men Cotton Plain Slim Fit Shirt'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men14.jpg" alt="Headphone">
+      <div class="product-name">Allen Solly Men Cotton</div>
+      <div class="price">₹499</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Allen Solly Men Cotton',
+          '₹499',
+          'Men14.jpg',
+          'Bellstone Men Solid Regular Fit Kurtas'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men15.jpg" alt="Headphone">
+      <div class="product-name">DHRUVI TRENDZ Co Ord Set for Men</div>
+      <div class="price">₹529</div>
+      <div class="old-price">₹700</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'DHRUVI TRENDZ Co Ord Set for Men',
+          '₹529',
+          'Men15.jpg',
+          'DHRUVI TRENDZ Co Ord Set for Men | Trendy Night Dress for Boys | T-Shirt and Shorts Combo for Lounge | Stylish Summer and Travel Wear |Men Matching Two-Piece for Vacation'
+        )">
+        Buy
+      </button>
+    </div>
+
+    <div class="product-card">
+      <img src="Men16.jpg" alt="Headphone">
+      <div class="product-name">Cream Floral Printed Cotton</div>
+      <div class="price">₹999</div>
+      <div class="old-price">₹2,999</div>
+
+      <button class="product-button" 
+        onclick="showDetails(
+          'Cream Floral Printed Cotton',
+          '₹999',
+          'Men16.jpg',
+          'Mens Cream Floral Printed Cotton Casual Shirt'
+        )">
+        Buy
+      </button>
+    </div>
+</div>
+
+<!-- ✅ Product Details Section -->
+<div id="detailsPage" 
+     style="display:none; text-align:center; padding:50px; background-color:#f4f6f8; min-height:100vh;">
+
+  <div class="details-container" 
+       style="display:flex; justify-content:center; align-items:flex-start; flex-wrap:wrap; 
+              background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 15px rgba(0,0,0,0.1); max-width:1100px; margin:auto; gap:50px;">
+
+    <!-- 🖼 Product Image -->
+    <div class="details-image" style="flex:1; min-width:380px; text-align:center;">
+      <img id="productImage" src="" alt="Product Image" 
+           style="width:100%; max-width:450px; height:auto; border-radius:15px; border:2px solid #ddd; object-fit:cover;">
+    </div>
+
+    <!-- 📄 Product Info -->
+    <div class="details-info" 
+         style="flex:1; text-align:left; min-width:350px; font-family:'Segoe UI', Arial, sans-serif;">
+      <h2 id="productName" 
+          style="font-size:32px; color:#222; margin-bottom:20px; font-weight:600;"></h2>
+      
+      <p style="font-size:20px; margin-bottom:15px;">
+        <strong>💰 Price:</strong> 
+        <span id="productPrice" style="color:#28a745; font-weight:bold; font-size:22px;"></span>
+      </p>
+
+      <p style="font-size:18px; margin-bottom:15px;">
+        <strong>📱 Specifications:</strong> 
+        <span id="productDesc"></span>
+      </p>
+
+      <!-- ⭐ Additional Info -->
+      <div style="font-size:17px; margin-top:20px;">
+        <p><strong>✨ Features:</strong></p>
+        <ul style="margin-left:20px; line-height:1.8;">
+          <li>Fast Performance with Latest Processor</li>
+          <li>Long Battery Life & Quick Charging</li>
+          <li>High-Resolution Camera with Night Mode</li>
+          <li>5G Connectivity and Latest OS</li>
+        </ul>
+
+        <p><strong>🧾 Warranty:</strong> 1 Year Manufacturer Warranty for Device</p>
+        <p><strong>⭐ Customer Rating:</strong> 4.7 / 5 (Based on 1,200+ Reviews)</p>
+        <p><strong>🎁 Offers:</strong> 10% Instant Discount on HDFC Bank Cards | No Cost EMI Available</p>
+
+        <p style="margin-top:15px;"><strong>✅ Quality:</strong> Premium quality guaranteed.</p>
+        <p><strong>🚚 Delivery:</strong> Estimated delivery in <b>1 day</b>.</p>
+      </div>
+
+      <!-- 🛒 Action Buttons -->
+      <div style="margin-top:30px;">
+        <button onclick="proceedToPayment()" 
+                style="background-color:#198754; color:white; padding:12px 25px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:17px; margin-left:10px;">
+          💳 Buy Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⬇ Back Button -->
+  <div style="margin-top:40px; text-align:center;">
+    <button onclick="goBack()" 
+            style="background-color:#6c757d; color:white; padding:12px 30px; border:none; 
+                   border-radius:8px; cursor:pointer; font-size:17px;">
+      ⬅ Back to Products
+    </button>
+  </div>
+</div>
+
+<!-- 💳 Payment Section (Initially Hidden) -->
+<div id="paymentPage" class="payment-container" 
+     style="display:none; background-color:#e9f1ff; padding:60px; text-align:center; min-height:100vh;">
+  
+  <div class="payment-box" 
+       style="background:white; padding:40px; border-radius:15px; 
+              box-shadow:0 4px 12px rgba(0,0,0,0.1); width:450px; margin:auto; text-align:left;">
+    
+    <h2 style="text-align:center; margin-bottom:25px;">Payment Details</h2>
+    
+    <form onsubmit="makePayment(); return false;">
+      
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardName" style="width:45%; font-weight:600;">Name on Card:</label>
+        <input type="text" id="cardName" placeholder="Enter name" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="cardNumber" style="width:45%; font-weight:600;">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:15px;">
+        <label for="expiry" style="width:45%; font-weight:600;">Expiry (MM/YY):</label>
+        <input type="text" id="expiry" placeholder="MM/YY" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <label for="cvv" style="width:45%; font-weight:600;">CVV:</label>
+        <input type="password" id="cvv" placeholder="CVV" required
+               style="width:50%; padding:8px; border-radius:6px; border:1px solid #ccc;">
+      </div>
+
+      <div style="text-align:center;">
+        <button type="submit" class="pay-btn" 
+                style="background-color:#198754; color:white; padding:10px 30px; 
+                       border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+          Pay Now
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- ✅ Success Message -->
+<div id="orderSuccess" 
+     style="display:none; text-align:center; background-color:#d4edda; padding:40px; margin:50px auto; border-radius:10px; width:50%;">
+  <h2>✅ Payment Successful!</h2>
+  <p>Your order will be delivered within <b>1 day</b>.</p>
+  <button class="order-btn" onclick="goToOrders()" 
+          style="background-color:#198754; color:white; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; margin-top:10px;">
+    Go to Orders
+  </button>
+</div>
+
+
+
+
+  <footer class="footer">
+  <div class="footer-content">
+    <h3>Happy Cart Shop 😊</h3>
+    <p>Providing quality products since 2025. We deliver the best shopping experience online.</p>
+    <ul class="footer-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul>
+    <p>Contact us: info@happycartshop.com | +91 12345 67890</p>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 Happy Cart Shop. All Rights Reserved.
+  </div>
+</footer>
+
+
+
+<script>
+
+let selectedProduct = {}; // ✅ IMPORTANT: Store selected product globally
+
+
+// ✅ SHOW PRODUCT DETAILS PAGE
+function showDetails(name, price, image, desc) {
+
+  // Save product for payment
+  selectedProduct = { name, price, image, desc };
+
+  document.querySelector(".product-container").style.display = "none";
+  document.getElementById("detailsPage").style.display = "block";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  // Fill details
+  document.getElementById("productName").innerText = name;
+  document.getElementById("productPrice").innerText = price;
+  document.getElementById("productDesc").innerText = desc;
+  document.getElementById("productImage").src = image;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ GO BACK TO PRODUCT LIST
+function goBack() {
+  document.querySelector(".product-container").style.display = "grid";
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "none";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ SHOW PAYMENT PAGE
+function proceedToPayment() {
+  document.getElementById("detailsPage").style.display = "none";
+  document.getElementById("paymentPage").style.display = "block";
+  document.getElementById("orderSuccess").style.display = "none";
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ PROCESS PAYMENT
+function makePayment() {
+
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value.trim();
+    const cvv = document.getElementById("cvv").value.trim();
+
+    if (!name || !number || !expiry || !cvv) {
+      alert("⚠ Please fill all payment details!");
+      return;
+    }
+
+    document.getElementById("paymentPage").style.display = "none";
+    document.getElementById("orderSuccess").style.display = "block";
+
+    // ✅ Save order to localStorage
+    const order = {
+      product: selectedProduct.name,
+      price: selectedProduct.price,
+      desc: selectedProduct.desc,
+      image: selectedProduct.image,
+      date: new Date().toLocaleString(),
+    };
+
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(order);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+
+// ✅ Go to Orders Page
+function goToOrders() {
+  window.location.href = "order.html";
+}
+
+</script>
+
+
+
+
+</body>
+</html>
